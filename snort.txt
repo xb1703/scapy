@@ -1,0 +1,13 @@
+alert tcp any any -> any any
+
+# Snort log file binary format
+snort -dev -l ./snortlog
+
+# snort read file in text format
+snort -A console -c /etc/snort/snort.conf -l /var/log/snort/ -K ascii
+
+Le fichier binaire est beaucoup moins volumineux
+
+#Paquets icmp
+alert icmp any any -> any any (msg:"ICMP Ping"; sid:6969; rev:1)
+
